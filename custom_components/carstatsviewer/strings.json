@@ -1,0 +1,65 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Car Stats Viewer",
+        "description": "Creates a webhook that the Car Stats Viewer app can post telemetry to.",
+        "data": {
+          "vehicle_name": "Vehicle name",
+          "use_basic_auth": "Require HTTP Basic Auth",
+          "username": "Basic auth username",
+          "password": "Basic auth password",
+          "use_cloudhook": "Use a Nabu Casa cloud webhook (shorter URL, requires an active Home Assistant Cloud subscription)"
+        }
+      },
+      "confirm": {
+        "title": "Point the app at this webhook",
+        "description": "Enter this URL in the Car Stats Viewer app's webhook settings:\n\n`{webhook_url}`\n\nYou can find this again later from this integration's Configure option, so there's no need to copy it down anywhere else."
+      }
+    },
+    "error": {
+      "password_required": "A password is required when Basic Auth is enabled."
+    },
+    "abort": {
+      "already_configured": "A vehicle with this name is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Car Stats Viewer options",
+        "description": "Current webhook URL:\n\n`{webhook_url}`\n\nUsing Nabu Casa cloudhook: {via_cloudhook}",
+        "data": {
+          "use_basic_auth": "Require HTTP Basic Auth",
+          "username": "Basic auth username",
+          "password": "Basic auth password",
+          "use_cloudhook": "Use a Nabu Casa cloud webhook (shorter URL, requires an active Home Assistant Cloud subscription)",
+          "regenerate_webhook_id": "Generate a new webhook URL"
+        }
+      }
+    },
+    "error": {
+      "password_required": "A password is required when Basic Auth is enabled."
+    }
+  },
+  "issues": {
+    "cloudhook_unavailable": {
+      "title": "Car Stats Viewer: Nabu Casa cloudhook unavailable",
+      "description": "{vehicle_name} is set to use a Nabu Casa cloud webhook, but one couldn't be created ({reason}). The regular local/external webhook URL is being used in the meantime, so data collection is unaffected.\n\nNo action needed: this clears itself automatically once Home Assistant Cloud connects, no reload required. If {reason} doesn't sound temporary (for example, Cloud isn't set up, or your Nabu Casa subscription lapsed), fix that directly, or turn off \"Use a Nabu Casa cloud webhook\" in Configure if you don't need it."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "ignition": {
+        "state": {
+          "off": "Off",
+          "accessory": "Accessory",
+          "on": "On",
+          "starting": "Starting",
+          "locked": "Locked",
+          "undefined": "Undefined"
+        }
+      }
+    }
+  }
+}

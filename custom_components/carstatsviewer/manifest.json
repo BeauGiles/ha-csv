@@ -1,0 +1,13 @@
+{
+  "domain": "carstatsviewer",
+  "name": "Car Stats Viewer",
+  "codeowners": [],
+  "after_dependencies": ["cloud"],
+  "config_flow": true,
+  "dependencies": ["webhook"],
+  "documentation": "https://github.com/Ixam97/CarStatsViewer/blob/master/docs/APIDOC.md",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/Ixam97/CarStatsViewer/issues",
+  "requirements": [],
+  "version": "1.0.5"
+}
